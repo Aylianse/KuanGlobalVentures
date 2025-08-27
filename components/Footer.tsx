@@ -75,10 +75,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
-      </div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
@@ -99,13 +95,16 @@ export default function Footer() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold">Kuan Global</h3>
-                    <p className="text-gray-400 -mt-1">Ventures</p>
+                    <p className="text-gray-400 -mt-1">Ventures OPC Private Limited</p>
                   </div>
                 </div>
                 
                 <p className="text-gray-300 leading-relaxed">
-                  Empowering businesses through strategic consulting, talent acquisition, and organizational development. 
-                  We create lasting partnerships that drive success and growth.
+                  Elevating businesses. Empowering professionals. Achieving results.
+                </p>
+                
+                <p className="text-gray-300 leading-relaxed text-sm">
+                  Expert Business Consulting · Training & Development · Recruitment (Kudos Consultancy)
                 </p>
 
                 <div className="space-y-4">
@@ -158,7 +157,7 @@ export default function Footer() {
         </div>
 
         {/* Vision & Mission Section */}
-        <div className="bg-gray-800 py-16">
+        {/* <div className="bg-gray-800 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -198,10 +197,10 @@ export default function Footer() {
               </div>
             </motion.div>
           </div>
-        </div>
+        </div> */}
 
         {/* What Sets Us Apart */}
-        <div className="py-16">
+        {/* <div className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -242,7 +241,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Footer */}
         <div className="border-t border-gray-800 py-8">

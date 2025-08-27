@@ -26,3 +26,4 @@ pnpm-debug.log*
 # Misc
 .eslintcache
 
+public/videos/Video1.mp4

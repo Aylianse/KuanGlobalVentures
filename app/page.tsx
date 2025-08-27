@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Header from '@/components/Header'
@@ -30,6 +31,7 @@ import {
 } from 'lucide-react'
 
 export default function Home() {
+  const router = useRouter()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,18 +50,18 @@ export default function Home() {
   const services = [
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Talent Acquisition",
-      description: "Strategic recruitment solutions that connect exceptional talent with innovative companies."
+      title: "Business Consulting",
+      description: "From strategic planning to operational execution, our seasoned experts deliver customized solutions to help your business overcome challenges, identify opportunities and achieve sustainable growth."
     },
     {
       icon: <Building2 className="w-8 h-8" />,
-      title: "Business Consulting",
-      description: "Expert guidance to optimize operations, strategy, and growth for your organization."
+      title: "Training & Development",
+      description: "We design and deliver bespoke training programs that enhance leadership, communication, technical skills and team effectiveness—empowering your workforce to perform at their best."
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Global Expansion",
-      description: "Navigate international markets with our proven expansion strategies and local expertise."
+      title: "Recruitment – Kudos Consultancy",
+      description: "Our recruitment arm, Kudos Consultancy, connects you with top-tier talent across domains. We streamline your hiring process to present only the best candidates—helping you build a team that truly fits your culture and vision."
     }
   ]
 
@@ -105,7 +107,21 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/Video1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Video Overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
         
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -147,7 +163,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
             <motion.div
@@ -157,42 +173,41 @@ export default function Home() {
               className="space-y-8"
             >
               <motion.div variants={itemVariants} className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/30">
                   <Star className="w-4 h-4 mr-2" />
                   Trusted by 500+ Companies
                 </div>
-                <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
                   Empowering Businesses.
-                  <span className="block text-blue-600">Transforming Talent.</span>
+                  <span className="block text-blue-200">Transforming Talent.</span>
+                  <span className="block text-blue-200">Delivering Results.</span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  We bridge the gap between exceptional talent and innovative companies, 
-                  creating partnerships that drive success and growth in today's dynamic business landscape.
+                <p className="text-xl text-white/90 leading-relaxed drop-shadow-md">
+                  At Kuan Global Ventures OPC Private Limited, we specialize in three core areas that drive your business forward: 
+                  Business Consulting, Training & Development and Recruitment—under the brand name Kudos Consultancy.
                 </p>
               </motion.div>
 
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg shadow-lg" onClick={() => router.push('/contact')}>
                   Start Your Journey
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2">
-                  Learn More
-                </Button>
+                
               </motion.div>
 
               <motion.div variants={itemVariants} className="flex items-center space-x-8 pt-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">15+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
+                <div className="text-center text-white">
+                  <div className="text-2xl font-bold">15+</div>
+                  <div className="text-sm text-white/80">Years Experience</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Companies Served</div>
+                <div className="text-center text-white">
+                  <div className="text-2xl font-bold">500+</div>
+                  <div className="text-sm text-white/80">Companies Served</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-900">1000+</div>
-                  <div className="text-sm text-gray-600">Placements Made</div>
+                <div className="text-center text-white">
+                  <div className="text-2xl font-bold">1000+</div>
+                  <div className="text-sm text-white/80">Placements Made</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -205,30 +220,30 @@ export default function Home() {
               className="relative"
             >
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl p-8 shadow-elegant-lg">
+                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-4">
-                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
-                        <Users className="w-8 h-8 text-blue-600 mb-2" />
-                        <h3 className="font-semibold text-gray-900">Talent Solutions</h3>
-                        <p className="text-sm text-gray-600">Strategic recruitment</p>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <Users className="w-8 h-8 text-blue-200 mb-2" />
+                        <h3 className="font-semibold text-white">Talent Solutions</h3>
+                        <p className="text-sm text-white/80">Strategic recruitment</p>
                       </div>
-                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
-                        <TrendingUp className="w-8 h-8 text-green-600 mb-2" />
-                        <h3 className="font-semibold text-gray-900">Growth Strategy</h3>
-                        <p className="text-sm text-gray-600">Business optimization</p>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <TrendingUp className="w-8 h-8 text-green-200 mb-2" />
+                        <h3 className="font-semibold text-white">Growth Strategy</h3>
+                        <p className="text-sm text-white/80">Business optimization</p>
                       </div>
                     </div>
                     <div className="space-y-4 pt-8">
-                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
-                        <Globe className="w-8 h-8 text-purple-600 mb-2" />
-                        <h3 className="font-semibold text-gray-900">Global Reach</h3>
-                        <p className="text-sm text-gray-600">International expansion</p>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <Globe className="w-8 h-8 text-purple-200 mb-2" />
+                        <h3 className="font-semibold text-white">Global Reach</h3>
+                        <p className="text-sm text-white/80">International expansion</p>
                       </div>
-                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
-                        <Lightbulb className="w-8 h-8 text-yellow-600 mb-2" />
-                        <h3 className="font-semibold text-gray-900">Innovation</h3>
-                        <p className="text-sm text-gray-600">Creative solutions</p>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <Lightbulb className="w-8 h-8 text-yellow-200 mb-2" />
+                        <h3 className="font-semibold text-white">Innovation</h3>
+                        <p className="text-sm text-white/80">Creative solutions</p>
                       </div>
                     </div>
                   </div>
@@ -252,10 +267,11 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Our Story
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Founded with a vision to bridge the gap between exceptional talent and innovative companies, 
-              Kuan Global Ventures has been at the forefront of business transformation for over 15 years. 
-              We believe that the right people, in the right roles, can change the world.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Whether you're a thriving enterprise seeking strategic guidance, an organization aiming to upskill your workforce, 
+              or a brand in need of top-tier talent, we are your trusted partner in success. Founded with a vision to bridge 
+              the gap between exceptional talent and innovative companies, Kuan Global Ventures has been at the forefront of 
+              business transformation for over 15 years.
             </p>
           </motion.div>
 
@@ -358,6 +374,114 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Why Choose Us?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our integrated approach and client-centric methodology set us apart in delivering exceptional results.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Target className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Integrated Solutions</h3>
+              <p className="text-gray-600">
+                Across consulting, training, and talent acquisition—designed to work in harmony.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Client-Centric Approach</h3>
+              <p className="text-gray-600">
+                Tailored services that align with your unique goals and challenges.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Kudos Consultancy</h3>
+              <p className="text-gray-600">
+                A trusted brand known for precision, transparency and lasting candidate placements.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-indigo-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">End-to-End Support</h3>
+              <p className="text-gray-600">
+                From strategy development and training delivery to sourcing and onboarding talent.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Promise Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Our Promise
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              At Kuan Global Ventures, every engagement is rooted in long-term partnership. We don't just deliver services; 
+              we drive transformation. With Kudos Consultancy, our recruitment brand, you're not just hiring—you're investing 
+              in the right fit, every time.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -510,14 +634,39 @@ export default function Home() {
               Our team is ready to partner with you on your journey to success.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg">
-                Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg">
-                Schedule a Consultation
-              </Button>
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-lg font-semibold text-white mb-3">For Businesses Seeking Growth</h3>
+                <p className="text-blue-100 mb-4 text-sm">
+                  Ready to elevate your strategy and performance?
+                </p>
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 text-base w-full">
+                  Contact Us
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-lg font-semibold text-white mb-3">For Organizations Wanting to Develop Talent</h3>
+                <p className="text-blue-100 mb-4 text-sm">
+                  Looking to enhance your team's capabilities?
+                </p>
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 text-base w-full">
+                  Get a Custom Training Plan
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-lg font-semibold text-white mb-3">For Businesses in Need of Great Talent</h3>
+                <p className="text-blue-100 mb-4 text-sm">
+                  Hire smart, hire fast with Kudos Consultancy.
+                </p>
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 text-base w-full">
+                  Request Recruitment Support
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 pt-12">

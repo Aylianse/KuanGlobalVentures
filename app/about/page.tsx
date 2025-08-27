@@ -17,26 +17,31 @@ const AboutPage = () => {
 We started as a small team of passionate professionals who believed that every organization and individual deserves access to world-class recruitment, training, and placement services. Today, we've grown into a trusted partner for hundreds of companies and thousands of individuals across various industries.
 
 Our success is built on the foundation of deep industry knowledge, innovative methodologies, and an unwavering commitment to delivering exceptional results. We understand that every client is unique, which is why we tailor our services to meet specific needs and objectives.`,
-      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      hasVideo: true,
+      videoSrc: '/videos/Video2.mp4'
     },
     {
       id: 'vision',
       icon: Eye,
       title: 'Vision',
       subtitle: 'What We Aim to Achieve',
-      content: `Our vision is to become the most trusted and innovative consultancy firm globally, recognized for our ability to transform businesses and careers through strategic talent solutions. We envision a world where every organization has access to the right talent at the right time, and every individual has the opportunity to reach their full potential.
+      content: `To be the trusted partner accelerating organizational growth, empowering professionals and enabling impactful talent connections.
 
 We strive to be the catalyst for positive change in the professional landscape, creating opportunities that drive economic growth and personal fulfillment. Our long-term goal is to establish new standards of excellence in recruitment, training, and placement services while maintaining the highest levels of integrity and professionalism.
 
 Through continuous innovation and adaptation to changing market dynamics, we aim to remain at the forefront of industry best practices, leveraging technology and human expertise to deliver unparalleled results for our clients.`,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      hasVideo: false
     },
     {
       id: 'mission',
       icon: Target,
       title: 'Mission',
       subtitle: 'Our Immediate Goals & Core Values',
-      content: `Our mission is to provide comprehensive, innovative, and results-driven consultancy services that empower businesses and individuals to achieve their objectives. We are committed to delivering excellence through:
+      content: `We empower businesses through strategic consulting, customized training, and seamless recruitment solutions via Kudos Consultancy—unlocking potential, elevating performance and building high-performing teams.
+
+Our mission is to provide comprehensive, innovative, and results-driven consultancy services that empower businesses and individuals to achieve their objectives. We are committed to delivering excellence through:
 
 • **Strategic Excellence**: Developing tailored solutions that align with client goals and market demands
 • **Quality Assurance**: Maintaining the highest standards in all our services and deliverables
@@ -45,7 +50,8 @@ Through continuous innovation and adaptation to changing market dynamics, we aim
 • **Integrity**: Operating with transparency, honesty, and ethical practices in all our dealings
 
 We believe in the power of collaboration and strive to create win-win situations for all stakeholders. Our team of experienced professionals is dedicated to understanding the unique challenges faced by our clients and developing customized solutions that drive measurable results.`,
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80'
+      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      hasVideo: false
     },
     {
       id: 'message',
@@ -67,7 +73,8 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
 **Best regards,**
 *Leadership Team*
 *Kuan Global Ventures*`,
-      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80'
+      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80',
+      hasVideo: false
     }
   ]
 
@@ -76,18 +83,32 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        <div className="container-custom">
+      <section className="relative pt-32 pb-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+      <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/Video2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Video Overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              About <span className="gradient-text">Kuan Global Ventures</span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-8">
+              About <span className="text-blue-100">Kuan Global Ventures</span>
             </h1>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Discover our journey, vision, mission, and the values that drive our success in transforming businesses and careers.
             </p>
           </motion.div>
@@ -97,49 +118,60 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
       {/* Sections */}
       <div className="bg-white">
         {sections.map((section, index) => (
-          <section key={section.id} className={`section-padding ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
-            <div className="container-custom">
+          <section key={section.id} className={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
                   index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
                 }`}
               >
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
-                      <section.icon className="w-6 h-6 text-primary-600" />
+                  <div className="flex items-center mb-8">
+                    <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mr-6">
+                      <section.icon className="w-8 h-8 text-blue-600" />
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold text-gray-900">{section.title}</h2>
-                      <p className="text-lg text-primary-600 font-medium">{section.subtitle}</p>
+                      <h2 className="text-4xl font-bold text-gray-900 mb-2">{section.title}</h2>
+                      <p className="text-xl text-blue-600 font-medium">{section.subtitle}</p>
                     </div>
                   </div>
                   
                   <div className="prose prose-lg max-w-none">
                     {section.content.split('\n\n').map((paragraph, pIndex) => (
-                      <p key={pIndex} className="text-gray-600 leading-relaxed mb-4">
+                      <p key={pIndex} className="text-gray-600 leading-relaxed mb-6 text-lg">
                         {paragraph}
                       </p>
                     ))}
                   </div>
                 </div>
 
-                {/* Image */}
+                {/* Image or Video */}
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
                   <div className="relative">
-                    <Image
-                      src={section.image}
-                      alt={section.title}
-                      width={600}
-                      height={400}
-                      className="rounded-lg shadow-2xl"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+                    {section.hasVideo ? (
+                      <video
+                        src={section.videoSrc}
+                        controls
+                        className="rounded-2xl shadow-2xl w-full"
+                        poster={section.image}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : (
+                      <Image
+                        src={section.image}
+                        alt={section.title}
+                        width={600}
+                        height={400}
+                        className="rounded-2xl shadow-2xl"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                   </div>
                 </div>
               </motion.div>
@@ -149,8 +181,8 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
       </div>
 
       {/* Values Section */}
-      <section className="section-padding bg-primary-600 text-white">
-        <div className="container-custom">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -159,12 +191,12 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-6">Our Core Values</h2>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               The principles that guide everything we do
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
                 title: 'Excellence',
@@ -185,10 +217,10 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
               >
-                <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
-                <p className="text-primary-100 leading-relaxed">{value.description}</p>
+                <h3 className="text-2xl font-bold mb-6">{value.title}</h3>
+                <p className="text-blue-100 leading-relaxed text-lg">{value.description}</p>
               </motion.div>
             ))}
           </div>
