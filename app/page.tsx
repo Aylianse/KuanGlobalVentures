@@ -1,465 +1,358 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import Link from 'next/link'
-import { 
-  TrendingUp, 
-  Users, 
-  Target, 
-  Award, 
-  Globe, 
-  Lightbulb, 
-  CheckCircle, 
-  ArrowRight,
-  Building2,
-  GraduationCap,
-  UserCheck,
-  Star,
-  Sparkles,
-  Zap,
-  Rocket
-} from 'lucide-react'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { 
+  ArrowRight, 
+  Users, 
+  TrendingUp, 
+  Globe, 
+  Award, 
+  CheckCircle, 
+  Building2,
+  Lightbulb,
+  Target,
+  Heart,
+  Star,
+  Zap,
+  Briefcase,
+  GraduationCap,
+  Rocket,
+  Shield,
+  Clock,
+  Phone,
+  Mail,
+  MapPin,
+  Eye
+} from 'lucide-react'
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  })
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  }
 
   const services = [
     {
-      icon: <Building2 className="w-12 h-12 text-blue-400" />,
+      icon: <Users className="w-8 h-8" />,
+      title: "Talent Acquisition",
+      description: "Strategic recruitment solutions that connect exceptional talent with innovative companies."
+    },
+    {
+      icon: <Building2 className="w-8 h-8" />,
       title: "Business Consulting",
-      description: "From strategic planning to operational execution, our seasoned experts deliver customized solutions to help your business overcome challenges, identify opportunities and achieve sustainable growth.",
-      features: ["Strategic Planning", "Operational Excellence", "Growth Strategy", "Performance Optimization"],
-      gradient: "from-blue-500/20 to-cyan-500/20",
-      border: "border-blue-500/30"
+      description: "Expert guidance to optimize operations, strategy, and growth for your organization."
     },
     {
-      icon: <GraduationCap className="w-12 h-12 text-green-400" />,
-      title: "Training & Development",
-      description: "We design and deliver bespoke training programs that enhance leadership, communication, technical skills and team effectiveness—empowering your workforce to perform at their best.",
-      features: ["Leadership Development", "Communication Skills", "Technical Training", "Team Effectiveness"],
-      gradient: "from-green-500/20 to-emerald-500/20",
-      border: "border-green-500/30"
-    },
-    {
-      icon: <UserCheck className="w-12 h-12 text-purple-400" />,
-      title: "Recruitment – Kudos Consultancy",
-      description: "Our recruitment arm, Kudos Consultancy, connects you with top-tier talent across domains. We streamline your hiring process to present only the best candidates.",
-      features: ["Talent Acquisition", "Industry Expertise", "Streamlined Process", "Cultural Fit"],
-      gradient: "from-purple-500/20 to-pink-500/20",
-      border: "border-purple-500/30"
+      icon: <Globe className="w-8 h-8" />,
+      title: "Global Expansion",
+      description: "Navigate international markets with our proven expansion strategies and local expertise."
     }
   ]
 
   const whyChooseUs = [
     {
-      icon: <CheckCircle className="w-8 h-8 text-green-400" />,
-      text: "Integrated Solutions across consulting, training, and talent acquisition—designed to work in harmony."
+      icon: <Award className="w-6 h-6" />,
+      title: "Proven Track Record",
+      description: "15+ years of successful business transformations and talent placements."
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-green-400" />,
-      text: "Client-Centric Approach: Tailored services that align with your unique goals and challenges."
+      icon: <Target className="w-6 h-6" />,
+      title: "Strategic Approach",
+      description: "Data-driven insights and customized solutions for measurable results."
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-green-400" />,
-      text: "Kudos Consultancy: A trusted brand known for precision, transparency and lasting candidate placements."
-    },
-    {
-      icon: <CheckCircle className="w-8 h-8 text-green-400" />,
-      text: "End-to-End Support: From strategy development and training delivery to sourcing and onboarding talent."
+      icon: <Heart className="w-6 h-6" />,
+      title: "Client-Centric",
+      description: "Your success is our priority. We build lasting partnerships based on trust."
     }
   ]
 
-  const industries = [
+  const kudosServices = [
     {
-      title: "Startups",
-      icon: <TrendingUp className="w-8 h-8 text-blue-400" />,
-      features: [
-        "Agile sourcing across multiple channels",
-        "Efficient and transparent hiring",
-        "Culture-focused recruitment"
-      ],
-      gradient: "from-blue-500/20 to-cyan-500/20"
+      icon: <GraduationCap className="w-6 h-6" />,
+      title: "Executive Search",
+      description: "C-level and senior leadership recruitment across industries."
     },
     {
-      title: "IT Companies",
-      icon: <Globe className="w-8 h-8 text-green-400" />,
-      features: [
-        "Targeted candidate screening",
-        "Employer branding for tech talent",
-        "Technical assessments"
-      ],
-      gradient: "from-green-500/20 to-emerald-500/20"
+      icon: <Briefcase className="w-6 h-6" />,
+      title: "HR Consulting",
+      description: "Comprehensive human resources strategy and implementation."
     },
     {
-      title: "EdTech Organizations",
-      icon: <Lightbulb className="w-8 h-8 text-purple-400" />,
-      features: [
-        "Flexible and adaptable talent pools",
-        "Partnerships with academia",
-        "Online/hybrid role scaling"
-      ],
-      gradient: "from-purple-500/20 to-pink-500/20"
-    },
-    {
-      title: "Hospitality Sector",
-      icon: <Star className="w-8 h-8 text-yellow-400" />,
-      features: [
-        "Focus on soft skills and cultural alignment",
-        "Highlighting employer identity",
-        "Service-driven candidate selection"
-      ],
-      gradient: "from-yellow-500/20 to-orange-500/20"
+      icon: <Rocket className="w-6 h-6" />,
+      title: "Organizational Development",
+      description: "Transform your company culture and operational efficiency."
     }
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+    <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section with Immersive Design */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50"></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
+            animate={{ 
+              y: [0, -20, 0],
+              rotate: [0, 5, 0]
             }}
-            transition={{
-              duration: 20,
+            transition={{ 
+              duration: 6,
               repeat: Infinity,
-              ease: "linear"
+              ease: "easeInOut"
             }}
-            className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+            className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20"
           />
           <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [360, 180, 0],
+            animate={{ 
+              y: [0, 20, 0],
+              rotate: [0, -5, 0]
             }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 20, 0],
-            }}
-            transition={{
+            transition={{ 
               duration: 8,
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-2xl"
+            className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-20"
+          />
+          <motion.div
+            animate={{ 
+              y: [0, -15, 0],
+              rotate: [0, 3, 0]
+            }}
+            transition={{ 
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute bottom-20 left-1/4 w-20 h-20 bg-purple-100 rounded-full opacity-20"
           />
         </div>
 
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
             <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="space-y-8"
+            >
+              <motion.div variants={itemVariants} className="space-y-4">
+                <div className="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                  <Star className="w-4 h-4 mr-2" />
+                  Trusted by 500+ Companies
+                </div>
+                <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  Empowering Businesses.
+                  <span className="block text-blue-600">Transforming Talent.</span>
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  We bridge the gap between exceptional talent and innovative companies, 
+                  creating partnerships that drive success and growth in today's dynamic business landscape.
+                </p>
+              </motion.div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="max-w-6xl mx-auto"
-          >
-            {/* Animated Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8"
-            >
-              <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse" />
-              <span className="text-white/90 font-medium">Award-Winning Business Solutions</span>
-            </motion.div>
-
-            {/* Main Headline */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              className="text-6xl md:text-8xl font-black mb-8 leading-tight"
-            >
-              <span className="bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
-                Empowering
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
-                Businesses.
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-300 via-pink-300 to-yellow-300 bg-clip-text text-transparent">
-                Transforming
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent">
-                Talent.
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-red-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-                Delivering
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent">
-                Results.
-              </span>
-            </motion.h1>
-            
-            {/* Subtitle */}
-            <motion.p 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 1 }}
-              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
-            >
-              At Kuan Global Ventures OPC Private Limited, we specialize in three core areas that drive your business forward: Business Consulting, Training & Development and Recruitment—under the brand name Kudos Consultancy.
-            </motion.p>
-            
-            {/* CTA Buttons */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 1 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
-            >
-              <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  variant="gradient" 
-                  size="xl"
-                  className="relative overflow-hidden group text-lg font-bold px-10 py-6"
-                >
-                  <span className="relative z-10 flex items-center space-x-2">
-                    <Rocket className="w-6 h-6" />
-                    <span>Get Started Today</span>
-                  </span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "0%" }}
-                    transition={{ duration: 0.3 }}
-                  />
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
+                  Start Your Journey
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2">
+                  Learn More
                 </Button>
               </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  variant="glass" 
-                  size="xl"
-                  className="text-lg font-bold px-10 py-6 border-2 border-white/30 hover:border-white/50"
-                >
-                  <span className="flex items-center space-x-2">
-                    <Zap className="w-6 h-6" />
-                    <span>Explore Services</span>
-                  </span>
-                </Button>
+
+              <motion.div variants={itemVariants} className="flex items-center space-x-8 pt-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gray-900">15+</div>
+                  <div className="text-sm text-gray-600">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gray-900">500+</div>
+                  <div className="text-sm text-gray-600">Companies Served</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gray-900">1000+</div>
+                  <div className="text-sm text-gray-600">Placements Made</div>
+                </div>
               </motion.div>
             </motion.div>
 
-            {/* Floating Stats */}
+            {/* Hero Image */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2, duration: 1 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              className="relative"
             >
-              {[
-                { number: '500+', label: 'Businesses Transformed' },
-                { number: '1000+', label: 'Professionals Trained' },
-                { number: '2000+', label: 'Successful Placements' },
-                { number: '99%', label: 'Client Satisfaction' }
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 2.2 + index * 0.1, duration: 0.8 }}
-                  className="text-center group"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300"
-                  >
-                    <div className="text-3xl md:text-4xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text">
-                      {stat.number}
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl p-8 shadow-elegant-lg">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
+                        <Users className="w-8 h-8 text-blue-600 mb-2" />
+                        <h3 className="font-semibold text-gray-900">Talent Solutions</h3>
+                        <p className="text-sm text-gray-600">Strategic recruitment</p>
+                      </div>
+                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
+                        <TrendingUp className="w-8 h-8 text-green-600 mb-2" />
+                        <h3 className="font-semibold text-gray-900">Growth Strategy</h3>
+                        <p className="text-sm text-gray-600">Business optimization</p>
+                      </div>
                     </div>
-                    <div className="text-gray-300 text-sm font-medium">{stat.label}</div>
-                  </motion.div>
-                </motion.div>
-              ))}
+                    <div className="space-y-4 pt-8">
+                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
+                        <Globe className="w-8 h-8 text-purple-600 mb-2" />
+                        <h3 className="font-semibold text-gray-900">Global Reach</h3>
+                        <p className="text-sm text-gray-600">International expansion</p>
+                      </div>
+                      <div className="bg-white rounded-2xl p-4 shadow-elegant">
+                        <Lightbulb className="w-8 h-8 text-yellow-600 mb-2" />
+                        <h3 className="font-semibold text-gray-900">Innovation</h3>
+                        <p className="text-sm text-gray-600">Creative solutions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
-          >
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-white/60 rounded-full mt-2"
-            />
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Introduction Section with Glassmorphism */}
-      <section className="relative py-32 bg-gradient-to-b from-transparent to-black/20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md border border-blue-500/30 rounded-full px-6 py-3 mb-8"
-            >
-              <Target className="w-5 h-5 text-blue-400" />
-              <span className="text-blue-200 font-medium">Your Success Partner</span>
-            </motion.div>
-            
-            <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
-              Your Trusted Partner in Success
-            </h2>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-              Whether you're a thriving enterprise seeking strategic guidance, an organization aiming to upskill your workforce or a brand in need of top-tier talent, we are your trusted partner in success.
-            </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Services Section with Modern Cards */}
-      <section className="relative py-32 bg-gradient-to-b from-black/20 to-transparent">
-        <div className="container mx-auto px-4">
+      {/* Introduction Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-16"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-md border border-green-500/30 rounded-full px-6 py-3 mb-8"
-            >
-              <Lightbulb className="w-5 h-5 text-green-400" />
-              <span className="text-green-200 font-medium">Core Services</span>
-            </motion.div>
-            
-            <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-green-100 to-emerald-100 bg-clip-text text-transparent">
-              Our Services
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Our Story
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-              Comprehensive solutions designed to work in harmony, driving your business forward
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Founded with a vision to bridge the gap between exceptional talent and innovative companies, 
+              Kuan Global Ventures has been at the forefront of business transformation for over 15 years. 
+              We believe that the right people, in the right roles, can change the world.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Target className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Mission</h3>
+              <p className="text-gray-600">
+                To connect exceptional talent with innovative companies, creating partnerships that drive success.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="w-8 h-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
+              <p className="text-gray-600">
+                To be the leading force in business transformation and talent acquisition globally.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Values</h3>
+              <p className="text-gray-600">
+                Integrity, excellence, innovation, and unwavering commitment to client success.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              What We Offer
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive solutions designed to address your business challenges and drive sustainable growth.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className={`bg-gradient-to-br ${service.gradient} backdrop-blur-md border ${service.border} hover:shadow-2xl transition-all duration-500`}>
-                  <CardHeader className="text-center">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
-                      className="mx-auto mb-4"
-                    >
-                      {service.icon}
-                    </motion.div>
-                    <CardTitle className="text-2xl font-bold text-white mb-3">
-                      {service.title}
-                    </CardTitle>
+                <Card className="h-full border-0 shadow-elegant hover:shadow-elegant-lg transition-all duration-300">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                      <div className="text-blue-600 group-hover:scale-110 transition-transform">
+                        {service.icon}
+                      </div>
+                    </div>
+                    <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-gray-300 mb-6 leading-relaxed text-base">
+                  <CardContent className="text-center">
+                    <CardDescription className="text-gray-600 text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <motion.li 
-                          key={idx} 
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.2 + idx * 0.1 }}
-                          viewport={{ once: true }}
-                          className="flex items-center text-sm text-gray-300"
-                        >
-                          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                          {feature}
-                        </motion.li>
-                      ))}
-                    </ul>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -468,265 +361,186 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section with Interactive Elements */}
-      <section className="relative py-32 bg-gradient-to-b from-transparent to-black/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-20"
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-md border border-purple-500/30 rounded-full px-6 py-3 mb-8"
-              >
-                <Award className="w-5 h-5 text-purple-400" />
-                <span className="text-purple-200 font-medium">Why Choose Us</span>
-              </motion.div>
-              
-              <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-purple-100 to-pink-100 bg-clip-text text-transparent">
-                Why Choose Us?
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                Why Choose Kuan Global Ventures?
               </h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-                We don't just deliver services; we drive transformation
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                We stand apart through our commitment to excellence, personalized approach, and proven track record of delivering exceptional results for our clients.
               </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="space-y-8">
-                {whyChooseUs.slice(0, 2).map((item, index) => (
+              
+              <div className="space-y-6">
+                {whyChooseUs.map((item, index) => (
                   <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -50 }}
+                    key={item.title}
+                    initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ x: 10 }}
-                    className="flex items-start space-x-6 group"
+                    className="flex items-start space-x-4"
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                      className="flex-shrink-0"
-                    >
-                      {item.icon}
-                    </motion.div>
-                    <p className="text-gray-300 leading-relaxed text-lg group-hover:text-white transition-colors duration-300">
-                      {item.text}
-                    </p>
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="text-blue-600">
+                        {item.icon}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
-              <div className="space-y-8">
-                {whyChooseUs.slice(2).map((item, index) => (
-                  <motion.div
-                    key={index + 2}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    whileHover={{ x: -10 }}
-                    className="flex items-start space-x-6 group"
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.2, rotate: -5 }}
-                      className="flex-shrink-0"
-                    >
-                      {item.icon}
-                    </motion.div>
-                    <p className="text-gray-300 leading-relaxed text-lg group-hover:text-white transition-colors duration-300">
-                      {item.text}
-                    </p>
-                  </motion.div>
-                ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="bg-white rounded-3xl p-8 shadow-elegant-lg">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-blue-50 rounded-2xl">
+                    <div>
+                      <div className="text-2xl font-bold text-blue-600">98%</div>
+                      <div className="text-sm text-gray-600">Client Satisfaction</div>
+                    </div>
+                    <CheckCircle className="w-8 h-8 text-blue-600" />
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-4 bg-green-50 rounded-2xl">
+                    <div>
+                      <div className="text-2xl font-bold text-green-600">15+</div>
+                      <div className="text-sm text-gray-600">Years Experience</div>
+                    </div>
+                    <Award className="w-8 h-8 text-green-600" />
+                  </div>
+                  
+                  <div className="flex items-center justify-between p-4 bg-purple-50 rounded-2xl">
+                    <div>
+                      <div className="text-2xl font-bold text-purple-600">500+</div>
+                      <div className="text-sm text-gray-600">Companies Served</div>
+                    </div>
+                    <TrendingUp className="w-8 h-8 text-purple-600" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Kudos Consultancy Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Kudos Consultancy
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our specialized division focused on human resources and organizational development, 
+              helping companies build high-performing teams and cultures.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {kudosServices.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+                className="group"
+              >
+                <Card className="h-full border-0 shadow-elegant hover:shadow-elegant-lg transition-all duration-300">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-100 transition-colors">
+                      <div className="text-indigo-600 group-hover:scale-110 transition-transform">
+                        {service.icon}
+                      </div>
+                    </div>
+                    <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <CardDescription className="text-gray-600 text-base leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss how we can help you achieve your goals. 
+              Our team is ready to partner with you on your journey to success.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg">
+                Get Started Today
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg">
+                Schedule a Consultation
+              </Button>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 pt-12">
+              <div className="text-center">
+                <Phone className="w-8 h-8 text-blue-200 mx-auto mb-3" />
+                <div className="text-white font-semibold">Call Us</div>
+                <div className="text-blue-200">+1 (555) 123-4567</div>
+              </div>
+              <div className="text-center">
+                <Mail className="w-8 h-8 text-blue-200 mx-auto mb-3" />
+                <div className="text-white font-semibold">Email Us</div>
+                <div className="text-blue-200">info@kuanglobalventures.com</div>
+              </div>
+              <div className="text-center">
+                <MapPin className="w-8 h-8 text-blue-200 mx-auto mb-3" />
+                <div className="text-white font-semibold">Visit Us</div>
+                <div className="text-blue-200">New York, NY</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Kudos Consultancy Section with Immersive Design */}
-      <section className="relative py-32 bg-gradient-to-r from-purple-900/50 via-pink-900/50 to-purple-900/50 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-20" />
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-md border border-pink-500/30 rounded-full px-6 py-3 mb-8"
-              >
-                <Star className="w-5 h-5 text-pink-400" />
-                <span className="text-pink-200 font-medium">Kudos Consultancy</span>
-              </motion.div>
-              
-              <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-pink-100 to-purple-100 bg-clip-text text-transparent">
-                Kudos Consultancy: Kudos To Your Career
-              </h2>
-              <p className="text-xl text-purple-100 max-w-5xl mx-auto leading-relaxed">
-                Our recruitment services are not one-size-fits-all. We serve a diverse range of industries with customized strategies designed to connect you with the right talent, fast.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {industries.map((industry, index) => (
-                <motion.div
-                  key={industry.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10, scale: 1.05 }}
-                  className="group"
-                >
-                  <Card className={`bg-gradient-to-br ${industry.gradient} backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-500`}>
-                    <CardHeader className="text-center">
-                      <motion.div
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                        className="mx-auto mb-4"
-                      >
-                        {industry.icon}
-                      </motion.div>
-                      <CardTitle className="text-xl font-bold text-white mb-4">
-                        {industry.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        {industry.features.map((feature, idx) => (
-                          <motion.li 
-                            key={idx} 
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 + idx * 0.1 }}
-                            viewport={{ once: true }}
-                            className="text-sm text-purple-100 flex items-start"
-                          >
-                            <CheckCircle className="w-4 h-4 text-green-400 mr-2 flex-shrink-0 mt-0.5" />
-                            {feature}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section with Modern Design */}
-      <section className="relative py-32 bg-gradient-to-r from-blue-900/50 via-purple-900/50 to-blue-800/50 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-md border border-blue-500/30 rounded-full px-6 py-3 mb-8"
-              >
-                <Rocket className="w-5 h-5 text-blue-400" />
-                <span className="text-blue-200 font-medium">Ready to Transform?</span>
-              </motion.div>
-              
-              <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
-                Ready to Transform Your Business?
-              </h2>
-              <p className="text-xl text-blue-100 mb-12 leading-relaxed max-w-4xl mx-auto">
-                At Kuan Global Ventures, every engagement is rooted in long-term partnership. We don't just deliver services; we drive transformation.
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
-                {[
-                  {
-                    title: "For Businesses Seeking Growth",
-                    description: "Ready to elevate your strategy and performance?",
-                    buttonText: "Contact Us",
-                    href: "/contact",
-                    gradient: "from-green-500/20 to-emerald-500/20",
-                    border: "border-green-500/30"
-                  },
-                  {
-                    title: "For Organizations Wanting to Develop Talent",
-                    description: "Looking to enhance your team's capabilities?",
-                    buttonText: "Get Training Plan",
-                    href: "/services",
-                    gradient: "from-blue-500/20 to-cyan-500/20",
-                    border: "border-blue-500/30"
-                  },
-                  {
-                    title: "For Businesses in Need of Great Talent",
-                    description: "Hire smart, hire fast with Kudos Consultancy",
-                    buttonText: "Request Support",
-                    href: "/contact",
-                    gradient: "from-purple-500/20 to-pink-500/20",
-                    border: "border-purple-500/30"
-                  }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="group"
-                  >
-                    <Card className={`bg-gradient-to-br ${item.gradient} backdrop-blur-md border ${item.border} hover:shadow-2xl transition-all duration-500`}>
-                      <CardHeader>
-                        <CardTitle className="text-lg font-bold text-white mb-2">
-                          {item.title}
-                        </CardTitle>
-                        <CardDescription className="text-blue-100 text-sm mb-4">
-                          {item.description}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Link href={item.href}>
-                          <Button 
-                            variant="glass" 
-                            size="lg"
-                            className="w-full group-hover:bg-white/20 transition-all duration-300"
-                          >
-                            {item.buttonText}
-                          </Button>
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
       <Footer />
     </div>
   )
