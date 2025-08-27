@@ -16,6 +16,7 @@ import {
   UserCheck,
   Star
 } from 'lucide-react'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -100,6 +101,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      <Header />
+      
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white py-20">
         <div className="absolute inset-0 bg-black/20"></div>
