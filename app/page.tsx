@@ -321,7 +321,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+              <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
                 <VisionGraphic />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
