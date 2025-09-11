@@ -35,36 +35,36 @@ export default function VisionGraphic() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center shadow-sm"
+          className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center shadow-md"
         >
-          <Target className="w-2.5 h-2.5 text-blue-600" />
+          <Target className="w-4 h-4 text-blue-600" />
         </motion.div>
 
         {/* Lightbulb Icon */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 -right-1 transform -translate-y-1/2 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center shadow-sm"
+          className="absolute top-1/2 -right-2 transform -translate-y-1/2 w-7 h-7 bg-green-100 rounded-full flex items-center justify-center shadow-md"
         >
-          <Lightbulb className="w-2.5 h-2.5 text-green-600" />
+          <Lightbulb className="w-4 h-4 text-green-600" />
         </motion.div>
 
         {/* Users Icon */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center shadow-sm"
+          className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-7 h-7 bg-cyan-100 rounded-full flex items-center justify-center shadow-md"
         >
-          <Users className="w-2.5 h-2.5 text-cyan-600" />
+          <Users className="w-4 h-4 text-cyan-600" />
         </motion.div>
 
         {/* TrendingUp Icon */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 -left-1 transform -translate-y-1/2 w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center shadow-sm"
+          className="absolute top-1/2 -left-2 transform -translate-y-1/2 w-7 h-7 bg-orange-100 rounded-full flex items-center justify-center shadow-md"
         >
-          <TrendingUp className="w-2.5 h-2.5 text-orange-600" />
+          <TrendingUp className="w-4 h-4 text-orange-600" />
         </motion.div>
       </motion.div>
 
@@ -94,7 +94,7 @@ export default function VisionGraphic() {
       ))}
 
       {/* Vision Text */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
@@ -102,7 +102,7 @@ export default function VisionGraphic() {
       >
         <div className="text-sm font-semibold text-gray-600">Our Vision</div>
         <div className="text-xs text-gray-500 mt-1">Empowering Growth</div>
-      </motion.div>
+      </motion.div> */}
     </div>
   )
 }
