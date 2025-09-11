@@ -183,8 +183,8 @@ export default function Footer() {
               </div>
               
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="w-8 h-8 text-purple-600" />
+                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Lightbulb className="w-8 h-8 text-cyan-600" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">Values</h3>
                 <p className="text-gray-300 leading-relaxed">

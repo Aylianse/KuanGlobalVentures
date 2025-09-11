@@ -31,7 +31,7 @@ Our success is built on the foundation of deep industry knowledge, innovative me
 We strive to be the catalyst for positive change in the professional landscape, creating opportunities that drive economic growth and personal fulfillment. Our long-term goal is to establish new standards of excellence in recruitment, training, and placement services while maintaining the highest levels of integrity and professionalism.
 
 Through continuous innovation and adaptation to changing market dynamics, we aim to remain at the forefront of industry best practices, leveraging technology and human expertise to deliver unparalleled results for our clients.`,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
       hasVideo: false
     },
     {

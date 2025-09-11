@@ -80,7 +80,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
           className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         >
           {/* Header */}
-          <div className="relative bg-gradient-to-r from-primary to-purple-600 text-white p-6 rounded-t-2xl">
+          <div className="relative bg-gradient-to-r from-primary to-cyan-500 text-white p-6 rounded-t-2xl">
             <button
               onClick={onClose}
               className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"

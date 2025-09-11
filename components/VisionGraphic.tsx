@@ -11,7 +11,7 @@ export default function VisionGraphic() {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute w-48 h-48 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-full blur-xl"
+        className="absolute w-48 h-48 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-full blur-xl"
       />
       
       {/* Main Vision Icon */}
@@ -19,7 +19,7 @@ export default function VisionGraphic() {
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="relative z-10 w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center shadow-2xl"
+        className="relative z-10 w-24 h-24 bg-gradient-to-br from-primary to-cyan-500 rounded-full flex items-center justify-center shadow-2xl"
       >
         <Eye className="w-12 h-12 text-white" />
       </motion.div>
@@ -53,9 +53,9 @@ export default function VisionGraphic() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center shadow-lg"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center shadow-lg"
         >
-          <Users className="w-4 h-4 text-purple-600" />
+          <Users className="w-4 h-4 text-cyan-600" />
         </motion.div>
 
         {/* TrendingUp Icon */}

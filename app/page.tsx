@@ -54,7 +54,7 @@ export default function Home() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
+    transition: {
         staggerChildren: 0.2
       }
     }
@@ -140,7 +140,7 @@ export default function Home() {
           {/* Video Overlay */}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        
+
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -149,9 +149,9 @@ export default function Home() {
               rotate: [0, 5, 0]
             }}
             transition={{ 
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut"
+              duration: 6, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
             }}
             className="absolute top-20 left-10 w-32 h-32 bg-blue-100 rounded-full opacity-20"
           />
@@ -161,8 +161,8 @@ export default function Home() {
               rotate: [0, -5, 0]
             }}
             transition={{ 
-              duration: 8,
-              repeat: Infinity,
+              duration: 8, 
+              repeat: Infinity, 
               ease: "easeInOut"
             }}
             className="absolute top-40 right-20 w-24 h-24 bg-indigo-100 rounded-full opacity-20"
@@ -173,11 +173,11 @@ export default function Home() {
               rotate: [0, 3, 0]
             }}
             transition={{ 
-              duration: 7,
-              repeat: Infinity,
+              duration: 7, 
+              repeat: Infinity, 
               ease: "easeInOut"
             }}
-            className="absolute bottom-20 left-1/4 w-20 h-20 bg-purple-100 rounded-full opacity-20"
+            className="absolute bottom-20 left-1/4 w-20 h-20 bg-cyan-100 rounded-full opacity-20"
           />
         </div>
 
@@ -204,7 +204,7 @@ export default function Home() {
                   At Kuan Global Ventures OPC Private Limited, we specialize in three core areas that drive your business forward: 
                   Business Consulting, Training & Development and Recruitment—under the brand name Kudos Consultancy.
                 </p>
-              </motion.div>
+            </motion.div>
 
               <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg shadow-lg" onClick={() => router.push('/contact')}>
@@ -213,7 +213,7 @@ export default function Home() {
                 </Button>
                 
               </motion.div>
-
+              
               <motion.div variants={itemVariants} className="flex items-center space-x-8 pt-4">
                 <div className="text-center text-white">
                   <div className="text-2xl font-bold">5+</div>
@@ -254,7 +254,7 @@ export default function Home() {
                     </div>
                     <div className="space-y-4 pt-8">
                       <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
-                        <Globe className="w-8 h-8 text-purple-200 mb-2" />
+                        <Globe className="w-8 h-8 text-cyan-200 mb-2" />
                         <h3 className="font-semibold text-white">Global Reach</h3>
                         <p className="text-sm text-white/80">International expansion</p>
                       </div>
@@ -272,8 +272,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Our Story Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -282,14 +282,18 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+              <Heart className="w-4 h-4 mr-2" />
               Our Story
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Empowering Businesses. Transforming Talent. Delivering Results.
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Whether you're a thriving enterprise seeking strategic guidance, an organization aiming to upskill your workforce, 
-              or a brand in need of top-tier talent, we are your trusted partner in success. Founded with a vision to bridge 
-              the gap between exceptional talent and innovative companies, Kuan Global Ventures has been at the forefront of 
-              business transformation for over 5 years.
+              At Kuan Global Ventures OPC Private Limited, we specialize in three core areas that drive your business forward: 
+              Business Consulting, Training & Development and Recruitment—under the brand name Kudos Consultancy. Whether you're 
+              a thriving enterprise seeking strategic guidance, an organization aiming to upskill your workforce or a brand in 
+              need of top-tier talent, we are your trusted partner in success.
             </p>
           </motion.div>
 
@@ -299,7 +303,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
             >
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-blue-600" />
@@ -315,32 +319,32 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
             >
               <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
                 <VisionGraphic />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
               <p className="text-gray-600">
-                To be the leading force in business transformation and talent acquisition globally.
+                To be the trusted partner accelerating organizational growth, empowering professionals and enabling impactful talent connections.
               </p>
-            </motion.div>
+          </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-purple-600" />
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Values</h3>
               <p className="text-gray-600">
-                Integrity, excellence, innovation, and unwavering commitment to client success.
+                Excellence, integrity, innovation, and client-centricity drive everything we do. We believe in building lasting partnerships that create mutual success.
               </p>
-            </motion.div>
+        </motion.div>
           </div>
         </div>
       </section>
@@ -453,8 +457,8 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-purple-600" />
+              <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-cyan-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Kudos Consultancy</h3>
               <p className="text-gray-600">
@@ -522,12 +526,12 @@ export default function Home() {
               
               <div className="space-y-6">
                 {whyChooseUs.map((item, index) => (
-                  <motion.div
+              <motion.div
                     key={item.title}
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
                     className="flex items-start space-x-4"
                   >
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -539,8 +543,8 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
-                  </motion.div>
-                ))}
+              </motion.div>
+            ))}
               </div>
             </motion.div>
 
@@ -569,12 +573,12 @@ export default function Home() {
                     <Award className="w-8 h-8 text-green-600" />
                   </div>
                   
-                  <div className="flex items-center justify-between p-4 bg-purple-50 rounded-2xl">
+                  <div className="flex items-center justify-between p-4 bg-cyan-50 rounded-2xl">
                     <div>
-                      <div className="text-2xl font-bold text-purple-600">50+</div>
+                      <div className="text-2xl font-bold text-cyan-600">50+</div>
                       <div className="text-sm text-gray-600">Companies Served</div>
                     </div>
-                    <TrendingUp className="w-8 h-8 text-purple-600" />
+                    <TrendingUp className="w-8 h-8 text-cyan-600" />
                   </div>
                 </div>
               </div>
@@ -618,8 +622,8 @@ export default function Home() {
                     <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-100 transition-colors">
                       <div className="text-indigo-600 group-hover:scale-110 transition-transform">
                         {service.icon}
-                      </div>
-                    </div>
+                  </div>
+                </div>
                     <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
@@ -717,4 +721,4 @@ export default function Home() {
       />
     </div>
   )
-} 
+}
