@@ -270,45 +270,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Us</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-              Visit our office or get in touch with us. We're conveniently located in the heart of the business district.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative h-96 rounded-2xl overflow-hidden shadow-xl"
-          >
-            {/* Placeholder for Google Maps - Replace with actual iframe */}
-            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 font-medium text-lg">Google Maps Integration</p>
-                <p className="text-gray-500 text-sm mt-2">
-                  Replace this placeholder with actual Google Maps iframe
-                </p>
-                <p className="text-gray-500 text-sm">
-                  Address: 123 Business District, Suite 456, City, State 12345
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">
