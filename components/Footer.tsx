@@ -1,9 +1,8 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { Button } from './ui/button'
+import Link from "next/link"
+import { motion } from "framer-motion"
 import { 
-  ArrowUp, 
   Phone, 
   Mail, 
   MapPin, 
@@ -11,48 +10,32 @@ import {
   Twitter, 
   Facebook, 
   Instagram,
-  Users,
   Target,
-  Award,
-  Heart,
-  Building2,
-  Globe,
+  Users,
   Lightbulb,
-  Eye
-} from 'lucide-react'
-import Link from 'next/link'
+  ArrowUp
+} from "lucide-react"
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   const footerSections = [
-    {
-      title: "Company",
-      links: [
-        { name: "About Us", href: "/about" },
-        { name: "Our Mission", href: "/about" },
-        { name: "Leadership", href: "/about" },
-        { name: "Careers", href: "/careers" }
-      ]
-    },
     {
       title: "Services",
       links: [
         { name: "Business Consulting", href: "/services" },
-        { name: "Talent Acquisition", href: "/services" },
         { name: "Training & Development", href: "/services" },
-        { name: "Kudos Consultancy", href: "/services" }
+        { name: "Recruitment - Kudos Consultancy", href: "/services" },
+        { name: "Strategic Planning", href: "/services" },
+        { name: "Talent Acquisition", href: "/services" }
       ]
     },
     {
-      title: "Industries",
+      title: "Company",
       links: [
-        { name: "Technology", href: "/services" },
-        { name: "Healthcare", href: "/services" },
-        { name: "Finance", href: "/services" },
-        { name: "Education", href: "/services" }
+        { name: "About Us", href: "/about" },
+        { name: "Our Story", href: "/about" },
+        { name: "Mission & Vision", href: "/about" },
+        { name: "Leadership Team", href: "/about" },
+        { name: "Careers", href: "/careers" }
       ]
     },
     {
@@ -60,8 +43,19 @@ export default function Footer() {
       links: [
         { name: "Blog", href: "/blog" },
         { name: "Case Studies", href: "/case-studies" },
-        { name: "Whitepapers", href: "/resources" },
-        { name: "Events", href: "/events" }
+        { name: "White Papers", href: "/resources" },
+        { name: "Industry Insights", href: "/insights" },
+        { name: "FAQ", href: "/faq" }
+      ]
+    },
+    {
+      title: "Support",
+      links: [
+        { name: "Contact Us", href: "/contact" },
+        { name: "Get Support", href: "/support" },
+        { name: "Privacy Policy", href: "/privacy" },
+        { name: "Terms of Service", href: "/terms" },
+        { name: "Cookie Policy", href: "/cookies" }
       ]
     }
   ]
@@ -73,8 +67,16 @@ export default function Footer() {
     { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" }
   ]
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <footer className="bg-gray-900 text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
+      </div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
@@ -95,30 +97,27 @@ export default function Footer() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold">Kuan Global</h3>
-                    <p className="text-gray-400 -mt-1">Ventures OPC Private Limited</p>
+                    <p className="text-gray-400 -mt-1">Ventures</p>
                   </div>
                 </div>
                 
                 <p className="text-gray-300 leading-relaxed">
-                  Elevating businesses. Empowering professionals. Achieving results.
-                </p>
-                
-                <p className="text-gray-300 leading-relaxed text-sm">
-                  Expert Business Consulting · Training & Development · Recruitment (Kudos Consultancy)
+                  Empowering businesses through strategic consulting, talent acquisition, and organizational development. 
+                  We create lasting partnerships that drive success and growth.
                 </p>
 
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-primary" />
-                    <span className="text-gray-300">+1 (555) 123-4567</span>
+                    <span className="text-gray-300">+91 9964640472</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-gray-300">info@kuanglobalventures.com</span>
+                    <span className="text-gray-300">info.kuanglobalventures@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span className="text-gray-300">New York, NY</span>
+                    <span className="text-gray-300">India</span>
                   </div>
                 </div>
               </motion.div>
@@ -157,7 +156,7 @@ export default function Footer() {
         </div>
 
         {/* Vision & Mission Section */}
-        {/* <div className="bg-gray-800 py-16">
+        <div className="bg-gray-800 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -170,107 +169,125 @@ export default function Footer() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Our Mission</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Vision</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  To connect exceptional talent with innovative companies, creating partnerships that drive success and growth.
+                  To be the trusted partner accelerating organizational growth, empowering professionals 
+                  and enabling impactful talent connections.
                 </p>
               </div>
-
+              
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Eye className="w-8 h-8 text-green-600" />
+                  <Users className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Our Vision</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Mission</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  To be the leading force in business transformation and talent acquisition globally.
+                  We empower businesses through strategic consulting, customized training, and seamless 
+                  recruitment solutions via Kudos Consultancy—unlocking potential, elevating performance 
+                  and building high-performing teams.
                 </p>
               </div>
-
+              
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-purple-600" />
+                  <Lightbulb className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Our Values</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Values</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Integrity, excellence, innovation, and unwavering commitment to client success.
+                  Excellence, integrity, innovation, and client-centricity drive everything we do. 
+                  We believe in building lasting partnerships that create mutual success.
                 </p>
               </div>
             </motion.div>
           </div>
-        </div> */}
+        </div>
 
-        {/* What Sets Us Apart */}
-        {/* <div className="py-16">
+        {/* What Sets Us Apart Section */}
+        <div className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h3 className="text-3xl font-bold text-white mb-6">What Sets Us Apart</h3>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Our unique combination of expertise, personalized approach, and proven results makes us the partner of choice for businesses worldwide.
+              <h3 className="text-3xl font-bold text-white mb-4">What Sets Us Apart</h3>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Our integrated approach across consulting, training, and recruitment ensures 
+                comprehensive solutions that drive real business results.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                { icon: <Users className="w-8 h-8" />, title: "Expert Team", description: "Seasoned professionals with deep industry knowledge" },
-                { icon: <Target className="w-8 h-8" />, title: "Strategic Focus", description: "Data-driven insights for measurable results" },
-                { icon: <Award className="w-8 h-8" />, title: "Proven Results", description: "15+ years of successful transformations" },
-                { icon: <Heart className="w-8 h-8" />, title: "Client-Centric", description: "Your success is our priority" }
-              ].map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center group"
-                >
-                  <div className="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors duration-300">
-                    <div className="text-primary group-hover:text-white transition-colors">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
-                  <p className="text-gray-300 text-sm">{feature.description}</p>
-                </motion.div>
-              ))}
+            <div className="grid md:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Integrated Solutions</h4>
+                <p className="text-gray-300">
+                  Seamless integration across consulting, training, and talent acquisition
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">Client-Centric Approach</h4>
+                <p className="text-gray-300">
+                  Tailored services that align with your unique goals and challenges
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Lightbulb className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-white mb-2">End-to-End Support</h4>
+                <p className="text-gray-300">
+                  From strategy development to talent onboarding and beyond
+                </p>
+              </motion.div>
             </div>
           </div>
-        </div> */}
+        </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-gray-800 py-8">
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700 py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="flex items-center space-x-6">
-                <span className="text-gray-400">© 2024 Kuan Global Ventures. All rights reserved.</span>
-                <div className="flex space-x-4">
-                  <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                    Privacy Policy
-                  </Link>
-                  <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                    Terms of Service
-                  </Link>
-                </div>
+              <div className="text-gray-400 text-sm">
+                © 2024 Kuan Global Ventures OPC Private Limited. All rights reserved.
               </div>
-
-              <div className="flex items-center space-x-4">
+              
+              <div className="flex items-center space-x-6">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
                     aria-label={social.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition-all duration-300"
                   >
                     {social.icon}
                   </motion.a>
@@ -284,17 +301,15 @@ export default function Footer() {
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.1, y: -5 }}
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 z-50"
+        className="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-6 h-6" />
+        <ArrowUp className="w-5 h-5" />
       </motion.button>
     </footer>
   )
-} 
+}

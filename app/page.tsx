@@ -2,10 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import PopupForm from '@/components/PopupForm'
+import VisionGraphic from '@/components/VisionGraphic'
 import { 
   ArrowRight, 
   Users, 
@@ -32,6 +35,21 @@ import {
 
 export default function Home() {
   const router = useRouter()
+  const [showPopup, setShowPopup] = useState(false)
+
+  useEffect(() => {
+    // Check if user has visited before
+    const hasVisited = localStorage.getItem('hasVisited')
+    if (!hasVisited) {
+      // Show popup after 3 seconds
+      const timer = setTimeout(() => {
+        setShowPopup(true)
+        localStorage.setItem('hasVisited', 'true')
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [])
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -69,7 +87,7 @@ export default function Home() {
     {
       icon: <Award className="w-6 h-6" />,
       title: "Proven Track Record",
-      description: "15+ years of successful business transformations and talent placements."
+      description: "5+ years of successful business transformations and talent placements."
     },
     {
       icon: <Target className="w-6 h-6" />,
@@ -175,12 +193,12 @@ export default function Home() {
               <motion.div variants={itemVariants} className="space-y-4">
                 <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/30">
                   <Star className="w-4 h-4 mr-2" />
-                  Trusted by 500+ Companies
+                  Trusted by 50+ Companies
                 </div>
-                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-                  Empowering Businesses.
-                  <span className="block text-blue-200">Transforming Talent.</span>
-                  <span className="block text-blue-200">Delivering Results.</span>
+                <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+                  Empowering Businesses
+                  <span className="block text-blue-200">Transforming Talent</span>
+                  <span className="block text-blue-200">Delivering Results</span>
                 </h1>
                 <p className="text-xl text-white/90 leading-relaxed drop-shadow-md">
                   At Kuan Global Ventures OPC Private Limited, we specialize in three core areas that drive your business forward: 
@@ -198,11 +216,11 @@ export default function Home() {
 
               <motion.div variants={itemVariants} className="flex items-center space-x-8 pt-4">
                 <div className="text-center text-white">
-                  <div className="text-2xl font-bold">15+</div>
+                  <div className="text-2xl font-bold">5+</div>
                   <div className="text-sm text-white/80">Years Experience</div>
                 </div>
                 <div className="text-center text-white">
-                  <div className="text-2xl font-bold">500+</div>
+                  <div className="text-2xl font-bold">50+</div>
                   <div className="text-sm text-white/80">Companies Served</div>
                 </div>
                 <div className="text-center text-white">
@@ -212,7 +230,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Hero Image */}
+            {/* Vision Graphic */}
             <motion.div
               variants={itemVariants}
               initial="hidden"
@@ -221,32 +239,7 @@ export default function Home() {
             >
               <div className="relative z-10">
                 <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-4">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
-                        <Users className="w-8 h-8 text-blue-200 mb-2" />
-                        <h3 className="font-semibold text-white">Talent Solutions</h3>
-                        <p className="text-sm text-white/80">Strategic recruitment</p>
-                      </div>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
-                        <TrendingUp className="w-8 h-8 text-green-200 mb-2" />
-                        <h3 className="font-semibold text-white">Growth Strategy</h3>
-                        <p className="text-sm text-white/80">Business optimization</p>
-                      </div>
-                    </div>
-                    <div className="space-y-4 pt-8">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
-                        <Globe className="w-8 h-8 text-purple-200 mb-2" />
-                        <h3 className="font-semibold text-white">Global Reach</h3>
-                        <p className="text-sm text-white/80">International expansion</p>
-                      </div>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
-                        <Lightbulb className="w-8 h-8 text-yellow-200 mb-2" />
-                        <h3 className="font-semibold text-white">Innovation</h3>
-                        <p className="text-sm text-white/80">Creative solutions</p>
-                      </div>
-                    </div>
-                  </div>
+                  <VisionGraphic />
                 </div>
               </div>
             </motion.div>
@@ -271,7 +264,7 @@ export default function Home() {
               Whether you're a thriving enterprise seeking strategic guidance, an organization aiming to upskill your workforce, 
               or a brand in need of top-tier talent, we are your trusted partner in success. Founded with a vision to bridge 
               the gap between exceptional talent and innovative companies, Kuan Global Ventures has been at the forefront of 
-              business transformation for over 15 years.
+              business transformation for over 5 years.
             </p>
           </motion.div>
 
@@ -545,7 +538,7 @@ export default function Home() {
                   
                   <div className="flex items-center justify-between p-4 bg-green-50 rounded-2xl">
                     <div>
-                      <div className="text-2xl font-bold text-green-600">15+</div>
+                      <div className="text-2xl font-bold text-green-600">5+</div>
                       <div className="text-sm text-gray-600">Years Experience</div>
                     </div>
                     <Award className="w-8 h-8 text-green-600" />
@@ -553,7 +546,7 @@ export default function Home() {
                   
                   <div className="flex items-center justify-between p-4 bg-purple-50 rounded-2xl">
                     <div>
-                      <div className="text-2xl font-bold text-purple-600">500+</div>
+                      <div className="text-2xl font-bold text-purple-600">50+</div>
                       <div className="text-sm text-gray-600">Companies Served</div>
                     </div>
                     <TrendingUp className="w-8 h-8 text-purple-600" />
@@ -673,12 +666,12 @@ export default function Home() {
               <div className="text-center">
                 <Phone className="w-8 h-8 text-blue-200 mx-auto mb-3" />
                 <div className="text-white font-semibold">Call Us</div>
-                <div className="text-blue-200">+1 (555) 123-4567</div>
+                <div className="text-blue-200">+91 9964640472</div>
               </div>
               <div className="text-center">
                 <Mail className="w-8 h-8 text-blue-200 mx-auto mb-3" />
                 <div className="text-white font-semibold">Email Us</div>
-                <div className="text-blue-200">info@kuanglobalventures.com</div>
+                <div className="text-blue-200">info.kuanglobalventures@gmail.com</div>
               </div>
               <div className="text-center">
                 <MapPin className="w-8 h-8 text-blue-200 mx-auto mb-3" />
@@ -691,6 +684,12 @@ export default function Home() {
       </section>
 
       <Footer />
+      
+      {/* Popup Form */}
+      <PopupForm 
+        isOpen={showPopup} 
+        onClose={() => setShowPopup(false)} 
+      />
     </div>
   )
 } 

@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { Button } from './ui/button'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +62,11 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-50"
+                className={`px-4 py-2 font-medium transition-colors duration-200 rounded-lg hover:bg-gray-50 ${
+                  pathname === item.href
+                    ? 'text-primary bg-primary/10 border border-primary/20'
+                    : 'text-gray-700 hover:text-primary'
+                }`}
               >
                 {item.name}
               </Link>
@@ -100,7 +106,11 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
+                  className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors ${
+                    pathname === item.href
+                      ? 'text-primary bg-primary/10 border border-primary/20'
+                      : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
