@@ -92,13 +92,7 @@ export default function Footer() {
                 className="space-y-6"
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">K</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">Kuan Global</h3>
-                    <p className="text-gray-400 -mt-1">Ventures</p>
-                  </div>
+                  <img src="/images/kuanlogo1.png" alt="Kuan Global Ventures" className="w-[120px] h-[48px] object-contain" />
                 </div>
                 
                 <p className="text-gray-300 leading-relaxed">

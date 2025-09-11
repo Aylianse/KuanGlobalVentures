@@ -230,7 +230,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Vision Graphic */}
+            {/* Hero Image */}
             <motion.div
               variants={itemVariants}
               initial="hidden"
@@ -239,7 +239,32 @@ export default function Home() {
             >
               <div className="relative z-10">
                 <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
-                  <VisionGraphic />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <Users className="w-8 h-8 text-blue-200 mb-2" />
+                        <h3 className="font-semibold text-white">Talent Solutions</h3>
+                        <p className="text-sm text-white/80">Strategic recruitment</p>
+                      </div>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <TrendingUp className="w-8 h-8 text-green-200 mb-2" />
+                        <h3 className="font-semibold text-white">Growth Strategy</h3>
+                        <p className="text-sm text-white/80">Business optimization</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4 pt-8">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <Globe className="w-8 h-8 text-purple-200 mb-2" />
+                        <h3 className="font-semibold text-white">Global Reach</h3>
+                        <p className="text-sm text-white/80">International expansion</p>
+                      </div>
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                        <Lightbulb className="w-8 h-8 text-yellow-200 mb-2" />
+                        <h3 className="font-semibold text-white">Innovation</h3>
+                        <p className="text-sm text-white/80">Creative solutions</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -292,8 +317,8 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Eye className="w-8 h-8 text-green-600" />
+              <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                <VisionGraphic />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
               <p className="text-gray-600">
