@@ -72,15 +72,15 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-white text-gray-900 relative overflow-hidden border-t border-gray-200">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20" />
       </div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid lg:grid-cols-12 gap-12">
             {/* Company Info */}
             <div className="lg:col-span-4">
@@ -95,7 +95,7 @@ export default function Footer() {
                   <img src="/images/kuanlogo1.png" alt="Kuan Global Ventures" className="w-[120px] h-[48px] object-contain" />
                 </div>
                 
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   Empowering businesses through strategic consulting, talent acquisition, and organizational development. 
                   We create lasting partnerships that drive success and growth.
                 </p>
@@ -103,15 +103,15 @@ export default function Footer() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-primary" />
-                    <span className="text-gray-300">+91 9964640472</span>
+                    <span className="text-gray-600">+91 9964640472</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-gray-300">info.kuanglobalventures@gmail.com</span>
+                    <span className="text-gray-600">info.kuanglobalventures@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-5 h-5 text-primary" />
-                    <span className="text-gray-300">India</span>
+                    <span className="text-gray-600">India</span>
                   </div>
                 </div>
               </motion.div>
@@ -129,13 +129,13 @@ export default function Footer() {
                     viewport={{ once: true }}
                     className="space-y-4"
                   >
-                    <h4 className="text-lg font-semibold text-white mb-4">{section.title}</h4>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-4">{section.title}</h4>
                     <ul className="space-y-3">
                       {section.links.map((link) => (
                         <li key={link.name}>
                           <Link 
                             href={link.href}
-                            className="text-gray-300 hover:text-white transition-colors duration-200"
+                            className="text-gray-600 hover:text-primary transition-colors duration-200"
                           >
                             {link.name}
                           </Link>
@@ -150,7 +150,7 @@ export default function Footer() {
         </div>
 
         {/* Vision & Mission Section */}
-        <div className="bg-gray-800 py-16">
+        <div className="bg-gray-50 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -163,31 +163,31 @@ export default function Footer() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Vision</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Vision</h3>
+                <p className="text-gray-600 leading-relaxed">
                   To be the trusted partner accelerating organizational growth, empowering professionals 
                   and enabling impactful talent connections.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Mission</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Mission</h3>
+                <p className="text-gray-600 leading-relaxed">
                   We empower businesses through strategic consulting, customized training, and seamless 
                   recruitment solutions via Kudos Consultancy—unlocking potential, elevating performance 
                   and building high-performing teams.
                 </p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Lightbulb className="w-8 h-8 text-cyan-600" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Values</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Values</h3>
+                <p className="text-gray-600 leading-relaxed">
                   Excellence, integrity, innovation, and client-centricity drive everything we do. 
                   We believe in building lasting partnerships that create mutual success.
                 </p>
@@ -198,10 +198,10 @@ export default function Footer() {
 
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 py-8">
+        <div className="border-t border-gray-200 py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-sm">
+              <div className="text-gray-500 text-sm">
                 © 2024 Kuan Global Ventures OPC Private Limited. All rights reserved.
               </div>
               
@@ -212,7 +212,7 @@ export default function Footer() {
                     href={social.href}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-gray-500 hover:text-primary transition-colors duration-200"
                     aria-label={social.label}
                   >
                     {social.icon}
