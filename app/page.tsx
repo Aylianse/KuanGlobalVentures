@@ -303,15 +303,17 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 min-h-[320px] flex flex-col justify-between"
             >
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-blue-600" />
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Mission</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  To connect exceptional talent with innovative companies, creating partnerships that drive success.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Mission</h3>
-              <p className="text-gray-600">
-                To connect exceptional talent with innovative companies, creating partnerships that drive success.
-              </p>
             </motion.div>
 
             <motion.div
@@ -319,32 +321,36 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 min-h-[320px] flex flex-col justify-between"
             >
-              <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                <VisionGraphic />
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                  <VisionGraphic />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Vision</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  To be the trusted partner accelerating organizational growth, empowering professionals and enabling impactful talent connections.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Vision</h3>
-              <p className="text-gray-600">
-                To be the trusted partner accelerating organizational growth, empowering professionals and enabling impactful talent connections.
-              </p>
-          </motion.div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 min-h-[320px] flex flex-col justify-between"
             >
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-green-600" />
+              <div className="flex-1 flex flex-col justify-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Values</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Excellence, integrity, innovation, and client-centricity drive everything we do. We believe in building lasting partnerships that create mutual success.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Values</h3>
-              <p className="text-gray-600">
-                Excellence, integrity, innovation, and client-centricity drive everything we do. We believe in building lasting partnerships that create mutual success.
-              </p>
-        </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
