@@ -78,7 +78,7 @@ export default function Home() {
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Recruitment – Kudos Consultancy",
+      title: " Kudos Consultancy",
       description: "Our recruitment arm, Kudos Consultancy, connects you with top-tier talent across domains. We streamline your hiring process to present only the best candidates—helping you build a team that truly fits your culture and vision."
     }
   ]
@@ -287,7 +287,7 @@ export default function Home() {
               Our Story
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Empowering Businesses. Transforming Talent. Delivering Results.
+              Empowering Businesses Transforming Talent Delivering Results
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               At Kuan Global Ventures OPC Private Limited, we specialize in three core areas that drive your business forward: 

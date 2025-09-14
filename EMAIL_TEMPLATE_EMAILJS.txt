@@ -1,0 +1,45 @@
+==================================================
+🚀 NEW CONTACT FORM SUBMISSION
+==================================================
+
+Hello Kuan Global Ventures Team,
+
+You have received a new inquiry from your website contact form.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 CONTACT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 Name: {{from_name}}
+📧 Email: {{from_email}}
+📝 Subject: {{subject}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💬 MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+{{message}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 QUICK ACTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Reply to customer: {{from_email}}
+• Call customer: +91 9964640472
+• View website: KuanGlobalVentures.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This message was sent from your website contact form.
+Reply directly to this email to respond to the customer.
+
+Best regards,
+Kuan Global Ventures Website System
+
+🏢 Kuan Global Ventures OPC Private Limited
+📍 Akshaya nagar, Bannerghatta Road, Yelenahalli Main Rd
+   Near DLF New Township, Yelenahalli, Begur
+   Bengaluru, Karnataka 560076
+
+© 2025 Kuan Global Ventures OPC Private Limited. All rights reserved.
+==================================================

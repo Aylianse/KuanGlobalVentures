@@ -23,7 +23,7 @@ export default function Footer() {
       links: [
         { name: "Business Consulting", href: "/services" },
         { name: "Training & Development", href: "/services" },
-        { name: "Recruitment - Kudos Consultancy", href: "/services" },
+        { name: "Kudos Consultancy", href: "/services" },
         { name: "Strategic Planning", href: "/services" },
         { name: "Talent Acquisition", href: "/services" }
       ]
@@ -34,28 +34,19 @@ export default function Footer() {
         { name: "About Us", href: "/about" },
         { name: "Our Story", href: "/about" },
         { name: "Mission & Vision", href: "/about" },
-        { name: "Leadership Team", href: "/about" },
-        { name: "Careers", href: "/careers" }
+        { name: "Leadership Team", href: "/about" }
       ]
     },
     {
       title: "Resources",
       links: [
-        { name: "Blog", href: "/blog" },
-        { name: "Case Studies", href: "/case-studies" },
-        { name: "White Papers", href: "/resources" },
-        { name: "Industry Insights", href: "/insights" },
-        { name: "FAQ", href: "/faq" }
+        { name: "Privacy Policy", href: "/privacy" }
       ]
     },
     {
       title: "Support",
       links: [
-        { name: "Contact Us", href: "/contact" },
-        { name: "Get Support", href: "/support" },
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Service", href: "/terms" },
-        { name: "Cookie Policy", href: "/cookies" }
+        { name: "Contact Us", href: "/contact" }
       ]
     }
   ]
@@ -92,26 +83,26 @@ export default function Footer() {
                 className="space-y-6"
               >
                 <div className="flex items-center space-x-3">
-                  <img src="/images/kuanlogo1.png" alt="Kuan Global Ventures" className="w-[120px] h-[48px] object-contain" />
+                  <img src="/images/kuanlogo1.png" alt="Kuan Global Ventures" className="w-[160px] h-[64px] object-contain" />
                 </div>
                 
-                <p className="text-gray-600 leading-relaxed">
+                {/* <p className="text-gray-600 leading-relaxed">
                   Empowering businesses through strategic consulting, talent acquisition, and organizational development. 
                   We create lasting partnerships that drive success and growth.
-                </p>
+                </p> */}
 
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-primary" />
+                  <div className="flex items-start space-x-3">
+                    <Phone className="w-5 h-5 text-primary mt-0.5" />
                     <span className="text-gray-600">+91 9964640472</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="flex items-start space-x-3">
+                    <Mail className="w-5 h-5 text-primary mt-0.5" />
                     <span className="text-gray-600">info.kuanglobalventures@gmail.com</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    <span className="text-gray-600">India</span>
+                  <div className="flex items-start space-x-3">
+                    <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600 leading-relaxed">Akshaya nagar, Bannerghatta Road,, Yelenahalli Main Rd, Near DLF New Township, Yelenahalli, Begur, Bengaluru, Karnataka 560076</span>
                   </div>
                 </div>
               </motion.div>
@@ -202,7 +193,7 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-500 text-sm">
-                © 2024 Kuan Global Ventures OPC Private Limited. All rights reserved.
+                © 2025 Kuan Global Ventures OPC Private Limited. All rights reserved.
               </div>
               
               <div className="flex items-center space-x-6">

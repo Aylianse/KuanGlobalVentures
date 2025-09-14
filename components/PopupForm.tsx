@@ -25,7 +25,7 @@ export default function PopupForm({ isOpen, onClose }: PopupFormProps) {
   const services = [
     'Business Consulting',
     'Training & Development',
-    'Recruitment - Kudos Consultancy',
+    'Kudos Consultancy',
     'Strategic Planning',
     'Talent Acquisition'
   ]

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import emailjs from '@emailjs/browser'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -28,44 +29,83 @@ const ContactPage = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 3000)
+    try {
+      // Option 1: EmailJS (requires setup - see EMAIL_SETUP_GUIDE.md)
+      // Uncomment and configure these values after setting up EmailJS
+      /*
+      const serviceId = 'your_service_id_here'
+      const templateId = 'your_template_id_here'
+      const publicKey = 'your_public_key_here'
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'info.kuanglobalventures@gmail.com'
+      }
+      
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      */
+      
+      // Option 2: Simple mailto fallback (works immediately)
+      const subject = encodeURIComponent(`Contact Form: ${formData.subject}`)
+      const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+
+---
+Sent from Kuan Global Ventures Contact Form
+      `)
+      
+      // Open email client with pre-filled content
+      window.location.href = `mailto:info.kuanglobalventures@gmail.com?subject=${subject}&body=${body}`
+      
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      }, 3000)
+      
+    } catch (error) {
+      console.error('Error processing form:', error)
+      setIsSubmitting(false)
+      alert('Sorry, there was an error processing your message. Please try again or contact us directly.')
+    }
   }
 
   const contactInfo = [
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
+      value: '+91 9964640472',
       description: 'Call us during business hours'
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@kuanglobalventures.com',
+      value: 'info.kuanglobalventures@gmail.com',
       description: 'Send us an email anytime'
     },
     {
       icon: MapPin,
       title: 'Address',
-      value: '123 Business District, Suite 456, City, State 12345',
+      value: 'Akshaya nagar, Bannerghatta Road,, Yelenahalli Main Rd, Near DLF New Township, Yelenahalli, Begur, Bengaluru, Karnataka 560076',
       description: 'Visit our office'
     },
-    {
-      icon: Clock,
-      title: 'Business Hours',
-      value: 'Monday - Friday: 9:00 AM - 6:00 PM',
-      description: 'Saturday: 10:00 AM - 2:00 PM'
-    }
+    // {
+    //   icon: Clock,
+    //   title: 'Business Hours',
+    //   value: 'Monday - Friday: 9:00 AM - 6:00 PM',
+    //   description: 'Saturday: 10:00 AM - 2:00 PM'
+    // }
   ]
 
   return (
@@ -340,11 +380,17 @@ const ContactPage = () => {
               Don't wait to transform your business or career. Contact us today and let's discuss how we can help you achieve your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+              <button 
+                onClick={() => window.location.href = 'mailto:info.kuanglobalventures@gmail.com?subject=Schedule a Call - Consultation Request'}
+                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
                 Schedule a Call
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-4 px-8 rounded-lg transition-all duration-200">
-                Download Brochure
+              <button 
+                onClick={() => window.location.href = 'tel:+919964640472'}
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold py-4 px-8 rounded-lg transition-all duration-200"
+              >
+                Call Us Now
               </button>
             </div>
           </motion.div>

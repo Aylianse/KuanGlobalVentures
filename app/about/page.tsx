@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Target, Eye, Heart, MessageSquare } from 'lucide-react'
+import { Target, Eye, Heart, MessageSquare, Zap, Shield, Users, Lightbulb, CheckCircle } from 'lucide-react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -41,13 +41,7 @@ Through continuous innovation and adaptation to changing market dynamics, we aim
       subtitle: 'Our Immediate Goals & Core Values',
       content: `We empower businesses through strategic consulting, customized training, and seamless recruitment solutions via Kudos Consultancy—unlocking potential, elevating performance and building high-performing teams.
 
-Our mission is to provide comprehensive, innovative, and results-driven consultancy services that empower businesses and individuals to achieve their objectives. We are committed to delivering excellence through:
-
-• **Strategic Excellence**: Developing tailored solutions that align with client goals and market demands
-• **Quality Assurance**: Maintaining the highest standards in all our services and deliverables
-• **Client-Centric Approach**: Putting our clients' needs first and building long-term partnerships
-• **Innovation**: Continuously improving our methodologies and embracing new technologies
-• **Integrity**: Operating with transparency, honesty, and ethical practices in all our dealings
+Our mission is to provide comprehensive, innovative, and results-driven consultancy services that empower businesses and individuals to achieve their objectives.
 
 We believe in the power of collaboration and strive to create win-win situations for all stakeholders. Our team of experienced professionals is dedicated to understanding the unique challenges faced by our clients and developing customized solutions that drive measurable results.`,
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
@@ -70,11 +64,37 @@ I invite you to partner with us on your journey to success. Together, we can ach
 
 Thank you for considering Kuan Global Ventures as your trusted partner.
 
-**Best regards,**
-*Leadership Team*
-*Kuan Global Ventures*`,
+Best regards, Leadership Team Kuan Global Ventures`,
       image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80',
       hasVideo: false
+    }
+  ]
+
+  const coreValues = [
+    {
+      icon: Zap,
+      title: 'Strategic Excellence',
+      description: 'Developing tailored solutions that align with client goals and market demands'
+    },
+    {
+      icon: Shield,
+      title: 'Quality Assurance',
+      description: 'Maintaining the highest standards in all our services and deliverables'
+    },
+    {
+      icon: Users,
+      title: 'Client-Centric Approach',
+      description: 'Putting our clients\' needs first and building long-term partnerships'
+    },
+    {
+      icon: Lightbulb,
+      title: 'Innovation',
+      description: 'Continuously improving our methodologies and embracing new technologies'
+    },
+    {
+      icon: CheckCircle,
+      title: 'Integrity',
+      description: 'Operating with transparency, honesty, and ethical practices in all our dealings'
     }
   ]
 
@@ -118,6 +138,7 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
       {/* Sections */}
       <div className="bg-white">
         {sections.map((section, index) => (
+          <div key={section.id}>
           <section key={section.id} className={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
@@ -177,6 +198,46 @@ Thank you for considering Kuan Global Ventures as your trusted partner.
               </motion.div>
             </div>
           </section>
+          
+          {/* Core Values Section - Only show after mission section */}
+          {/* {section.id === 'mission' && (
+            <section className="py-16 bg-gray-50">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-center mb-12"
+                >
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h3>
+                  <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                    The principles that guide everything we do and ensure excellence in our service delivery
+                  </p>
+                </motion.div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                  {coreValues.map((value, valueIndex) => (
+                    <motion.div
+                      key={value.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: valueIndex * 0.1 }}
+                      viewport={{ once: true }}
+                      className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                    >
+                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <value.icon className="w-8 h-8 text-blue-600" />
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{value.title}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )} */}
+          </div>
         ))}
       </div>
 
